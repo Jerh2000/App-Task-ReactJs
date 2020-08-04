@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './CSS/index.css';
+import App from './Components/App';
 import Navigation from './Components/Navigation';
 import * as serviceWorker from './serviceWorker';
 
+
 ReactDOM.render(
   <React.StrictMode>
-    <Navigation/>
+    <Navigation />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
