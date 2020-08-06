@@ -4,18 +4,26 @@ import "../CSS/App.css";
 import { Tasks } from "../task.json";
 import FormTask from "./FormTask";
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      Tasks
+      Tasks,
     };
     this.handleAddTask = this.handleAddTask.bind(this);
   }
   handleAddTask(task) {
     this.setState({
-      Tasks: [...this.state.Tasks, task]
-    })
+      Tasks: [...this.state.Tasks, task],
+    });
+  }
+  handleRemoveTask(index){
+    this.setState({
+        Tasks: this.state.Tasks.filter((e,i)=>{
+          return i !== index
+        })
+      });
   }
 
   render() {
@@ -42,12 +50,48 @@ class App extends Component {
                 </span>
               </p>
             </div>
+            <div className="card-footer">
+              <button className="btn btn-success" onClick={this.handleRemoveTask.bind(this,i)}>Finished</button>
+            </div>
           </div>
         </div>
       );
     });
     return (
-      <div className="App">
+      <div className="App backg">
+        <div className="sticky-top">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a className="navbar-brand" href="#">
+              Home{" "}
+              <span className="badge badge-light">
+                {this.state.Tasks.length}
+              </span>
+            </a>
+
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div className="navbar-nav">
+                <a className="nav-item nav-link text-white" href="#">
+                  Pending tasks
+                </a>
+                <a className="nav-item nav-link text-white" href="#">
+                  Completed Tasks
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-5">
@@ -58,9 +102,9 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <header className="App-header">
+        <header className="App-header sticky-bottom">
           <img src={logo} className="App-logo" alt="logo" />
-          <p className="display-1"> Bienvenido a React </p>
+          <p className="display-1"> Desarrollado en React </p>
         </header>
       </div>
     );

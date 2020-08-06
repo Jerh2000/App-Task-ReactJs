@@ -43,24 +43,50 @@ class FormTasks extends Component {
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="tasktitle">Task title</label>
-              <input type="text" class="form-control" name="Title"  onChange={this.handleInputChange} placeholder="Task title..."/>
+              <input
+                required
+                type="text"
+                class="form-control"
+                name="Title"
+                onChange={this.handleInputChange}
+                placeholder="Task title..."
+              />
             </div>
 
             <div class="form-group col-md-6">
               <label for="responsable">Responsable</label>
-              <input type="text" class="form-control" name="Responsable"  onChange={this.handleInputChange} placeholder="Responsable..."/>
+              <input
+                required
+                type="text"
+                class="form-control"
+                name="Responsable"
+                onChange={this.handleInputChange}
+                placeholder="Responsable..."
+              />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="estimatedtime">Estimated Time (days)</label>
-              <input type="number" class="form-control" name="EstimatedTime"  onChange={this.handleInputChange} placeholder="Estimated time..." />
+              <input
+                required
+                type="number"
+                class="form-control"
+                name="EstimatedTime"
+                onChange={this.handleInputChange}
+                placeholder="Estimated time..."
+              />
             </div>
 
             <div class="form-group col-md-6">
               <label for="priority">Priority</label>
-              <select name="Priority" className="form-control" onChange={this.handleInputChange}>
+              <select
+                required
+                name="Priority"
+                className="form-control"
+                onChange={this.handleInputChange}
+              >
                 <option selected disabled>
                   Choose...
                 </option>
@@ -75,6 +101,7 @@ class FormTasks extends Component {
             <div className="form-group col-12">
               <label for="exampleFormControlTextarea1">Description</label>
               <textarea
+                required
                 class="form-control"
                 name="Description"
                 rows="3"
@@ -86,7 +113,9 @@ class FormTasks extends Component {
 
           <div className="form-row">
             <div className="form-group col-12 d-flex justify-content-center">
-              <button className="btn btn-success" type="submit">Save</button>
+              <button className="btn btn-success" type="submit">
+                Save
+              </button>
             </div>
           </div>
         </form>

@@ -13,7 +13,7 @@ class Navigation extends Component {
       <div className="sticky-top">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand" href="#">
-            Home <span className="badge badge-light">{this.state.Tasks.length}</span>
+            Home <span className="badge badge-light">{this.props.onAddNumTask()}</span>
           </a>
 
           <button
